@@ -2,7 +2,6 @@
 function callAPI($method, $url, $data){
    $curl = curl_init();
    
-	echo $data;
    switch ($method){
       case "POST":
          curl_setopt($curl, CURLOPT_POST, 1);
@@ -34,6 +33,19 @@ function callAPI($method, $url, $data){
    return $result;
 }
 
+function isWorking($userid){
+	
+	$mail = $_GET["mail"];
+	$key = $_GET["key"];
+	$payload = array(
+      'X-ClockodoApiUser: '.$mail,
+      'X-ClockodoApiKey: '.$key,
+   );
+   
+	$json = json_decode(callAPI("POST","https://my.clockodo.com/api/clock/".$userid, $payload));
+	
+}
+
 function main(){
 	$mail = $_GET["mail"];
 	$key = $_GET["key"];
@@ -41,7 +53,7 @@ function main(){
       'X-ClockodoApiUser: '.$mail,
       'X-ClockodoApiKey: '.$key,
    );
-	echo callAPI("POST","https://my.clockodo.com/api/users/55988", $payload);
+	echo callAPI("POST","https://my.clockodo.com/api/clock/55988", $payload);
 }
 	main();
 ?>
