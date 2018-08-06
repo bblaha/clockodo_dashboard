@@ -66,7 +66,7 @@ function main(){
 	$users = getUsers();
 	foreach($users as $user){
 		?>
-			<div class="namebox<?php if(isWorking($user["id"])){echo " active"}; ?>">
+			<div class="namebox<?php if(isWorking($user["id"])){echo " active";}; ?>">
 		<?php echo $user["name"]; ?>
 			</div>
 		<?php
