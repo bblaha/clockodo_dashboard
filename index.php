@@ -92,6 +92,8 @@ body{
 	width:200px;
 	height:75px;
 	margin:5px;
+	text-align:center;
+	vertical-align:center;
 }
 .active{
 	background-color:green;
