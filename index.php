@@ -47,8 +47,8 @@ function getPayload(){
 
 function isWorking($userid){
 
-   
-	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/clock/update/".$userid, getPayload()), true);
+   echo $userid;
+	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/clock", getPayload()), true);
 	var_dump($jsonTxt);
 }
 
