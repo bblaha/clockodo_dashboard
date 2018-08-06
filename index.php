@@ -42,7 +42,7 @@ function isWorking($userid){
       'X-ClockodoApiKey: '.$key,
    );
    
-	$json = json_decode(callAPI("POST","https://my.clockodo.com/api/clock/".$userid, $payload));
+	$json = json_decode(callAPI("POST","https://my.clockodo.com/api/clock/update/".$userid, $payload));
 	
 }
 
@@ -53,7 +53,7 @@ function main(){
       'X-ClockodoApiUser: '.$mail,
       'X-ClockodoApiKey: '.$key,
    );
-	echo callAPI("POST","https://my.clockodo.com/api/clock/55988", $payload);
+	echo callAPI("POST","https://my.clockodo.com/api/clock/update/55988", $payload);
 }
 	main();
 ?>
