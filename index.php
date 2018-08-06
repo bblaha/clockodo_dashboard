@@ -67,7 +67,7 @@ function main(){
 	$users = getUsers();
 	foreach($users as $user){
 		echo $user["name"];
-		echo isWorking$user["id"]);
+		echo isWorking($user["id"]);
 		echo "<hr />";
 	}
 	
