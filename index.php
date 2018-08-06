@@ -39,7 +39,7 @@ function main(){
       'X-ClockodoApiUser: '.$mail,
       'X-ClockodoApiKey: '.$key,
    );
-	echo callAPI("POST","https://my.clockodo.com/api/users", $payload)
+	echo callAPI("POST","https://my.clockodo.com/api/users", $payload);
 }
 	main();
 ?>
