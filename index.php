@@ -48,13 +48,13 @@ function getPayload(){
 function isWorking($userid){
 
    
-	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/clock/".$userid, getPayload()));
+	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/clock/".$userid, getPayload()), true);
 	
 }
 
 function getUsers(){
-	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/users", getPayload()));
-	var_dump($jsonTxt);
+	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/users", getPayload()), true);
+	return $jsonTxt["users"];
 }
 
 function main(){
@@ -64,7 +64,7 @@ function main(){
       'X-ClockodoApiUser: '.$mail,
       'X-ClockodoApiKey: '.$key,
    );
-	getUsers();
+	echo getUsers();
 }
 	main();
 ?>
