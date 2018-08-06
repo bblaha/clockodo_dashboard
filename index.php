@@ -83,8 +83,9 @@ body{
 	background-color:black;
 	color:white;
 	font-size:1.5em;
+	font-family: Arial;
 	}
-#namebox{
+.namebox{
 	display:block;
 	float:left;
 	background-color:red;
@@ -92,7 +93,7 @@ body{
 	height:75px;
 	margin:5px;
 }
-#active{
+.active{
 	background-color:green;
 }
 </style>
