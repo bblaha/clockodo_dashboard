@@ -33,8 +33,8 @@ function callAPI($method, $url, $data){
    return $result;
 }
 
-function isWorking($userid){
-	
+function getPayload(){
+		
 	$mail = $_GET["mail"];
 	$key = $_GET["key"];
 	$payload = array(
@@ -42,8 +42,18 @@ function isWorking($userid){
       'X-ClockodoApiKey: '.$key,
    );
    
-	$json = json_decode(callAPI("GET","https://my.clockodo.com/api/clock/update/".$userid, $payload));
+   return $payload;
+}
+
+function isWorking($userid){
+
+   
+	$json = json_decode(callAPI("GET","https://my.clockodo.com/api/clock/".$userid, getPayload()));
 	
+}
+
+function getUsers(){
+	$json = json_decode(callAPI("GET","https://my.clockodo.com/api/users", getPayload()));
 }
 
 function main(){
@@ -53,7 +63,7 @@ function main(){
       'X-ClockodoApiUser: '.$mail,
       'X-ClockodoApiKey: '.$key,
    );
-	echo callAPI("GET","https://my.clockodo.com/api/clock", $payload);
+	echo callAPI("GET","https://my.clockodo.com/api/users", getPayload());
 }
 	main();
 ?>
