@@ -48,9 +48,7 @@ function getPayload(){
 function isWorking($userid){
 
 	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/clock?users_id=".$userid, getPayload()), true);
-	if(!is_null($jsonTxt["running"])){
-		echo " is working";
-	}
+	return !is_null($jsonTxt["running"]);
 }
 
 function getUsers(){
@@ -67,12 +65,39 @@ function main(){
    );
 	$users = getUsers();
 	foreach($users as $user){
-		echo $user["name"];
-		echo isWorking($user["id"]);
-		echo "<hr />";
+		?>
+			<div class="namebox<?php if(isWorking($user["id"])){echo " active"}; ?>">
+		<?php echo $user["name"]; ?>
+			</div>
+		<?php
 	}
 	
 	
 }
-	main();
+
 ?>
+<html>
+<head>
+<style>
+body{
+	background-color:black;
+	color:white;
+	font-size:1.5em;
+	}
+#namebox{
+	display:block;
+	float:left;
+	background-color:red;
+	width:200px;
+	height:75px;
+	margin:5px;
+}
+#active{
+	background-color:green;
+}
+</style>
+</head>
+<body>
+	<?php main() ?>
+</body>
+</html>
