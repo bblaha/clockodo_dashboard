@@ -47,10 +47,9 @@ function getPayload(){
 
 function isWorking($userid){
 
-   echo $userid;
 	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/clock?users_id=".$userid, getPayload()), true);
 	if(!is_null($jsonTxt["running"])){
-		echo "is working";
+		echo " is working";
 	}
 }
 
