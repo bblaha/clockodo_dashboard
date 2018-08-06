@@ -30,5 +30,13 @@ function callAPI($method, $url, $data){
    curl_close($curl);
    return $result;
 }
-	echo callAPI("POST",
+
+function main(){
+	echo "Start";
+	$mail = $_GET["mail"];
+	$key = $_GET["key"];
+	echo $mail;
+}
+	main();
+	//echo callAPI("POST",
 ?>
