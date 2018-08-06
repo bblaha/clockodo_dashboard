@@ -64,7 +64,11 @@ function main(){
       'X-ClockodoApiUser: '.$mail,
       'X-ClockodoApiKey: '.$key,
    );
-	echo getUsers();
+	$users = getUsers();
+	foreach($users as $user){
+		echo $user["name"];
+	}
+	
 }
 	main();
 ?>
