@@ -49,7 +49,7 @@ function isWorking($userid){
 
    
 	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/clock/".$userid, getPayload()), true);
-	
+	echo $jsonTxt;
 }
 
 function getUsers(){
@@ -67,7 +67,10 @@ function main(){
 	$users = getUsers();
 	foreach($users as $user){
 		echo $user["name"];
+		echo isWorking$user["id"]);
+		echo "<hr />";
 	}
+	
 	
 }
 	main();
