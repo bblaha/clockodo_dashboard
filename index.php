@@ -35,8 +35,11 @@ function main(){
 	echo "Start";
 	$mail = $_GET["mail"];
 	$key = $_GET["key"];
-	echo $mail;
+	$payload = array(
+      'X-ClockodoApiUser: '.$mail,
+      'X-ClockodoApiKey: '.$key,
+   );
+	echo callAPI("POST","https://my.clockodo.com/api/users", $payload)
 }
 	main();
-	//echo callAPI("POST",
 ?>
