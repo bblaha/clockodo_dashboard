@@ -96,7 +96,7 @@ body{
 	font-family: Arial;
 	}
 .service{
-	font-size:0.3em;
+	font-size:0.36em;
 }
 .namebox{
 	display:block;
