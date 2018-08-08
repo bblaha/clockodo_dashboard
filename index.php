@@ -75,9 +75,9 @@ function main(){
 		?>
 			<div class="namebox<?php if($working){echo " active";}; ?>">
 		<?php echo $user["name"]; ?><br />
-		<p>(<?php if($working){echo getService($user["id"]);}; ?>
+		<p>(<?php if($working){echo getService($user["id"]);}; ?>)</p>
 			</div>
-		
+		<?php
 	}
 	
 	
