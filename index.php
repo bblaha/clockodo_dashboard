@@ -51,6 +51,12 @@ function isWorking($userid){
 	return !is_null($jsonTxt["running"]);
 }
 
+function getService($userid){
+
+	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/clock?users_id=".$userid, getPayload()), true);
+	return $jsonTxt["running"]["services_id"];
+}
+
 function getUsers(){
 	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/users", getPayload()), true);
 	return $jsonTxt["users"];
@@ -65,11 +71,13 @@ function main(){
    );
 	$users = getUsers();
 	foreach($users as $user){
+		$working = isWorking($user["id"]);
 		?>
-			<div class="namebox<?php if(isWorking($user["id"])){echo " active";}; ?>">
-		<?php echo $user["name"]; ?>
+			<div class="namebox<?php if($working){echo " active";}; ?>">
+		<?php echo $user["name"]; ?><br />
+		<p>(<?php if($working){echo getService($user["id"]);}; ?>
 			</div>
-		<?php
+		
 	}
 	
 	
