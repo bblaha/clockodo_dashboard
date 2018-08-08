@@ -54,7 +54,8 @@ function isWorking($userid){
 function getService($userid){
 
 	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/clock?users_id=".$userid, getPayload()), true);
-	return $jsonTxt["running"]["services_id"];
+	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/services/".$jsonTxt["running"]["services_id"], getPayload()), true);
+	return $jsonTxt["service"]["name"];
 }
 
 function getUsers(){
