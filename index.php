@@ -72,6 +72,7 @@ function main(){
    );
 	$users = getUsers();
 	foreach($users as $user){
+		if($user["active"]==true){
 		$working = isWorking($user["id"]);
 		?>
 			<div class="namebox<?php if($working){echo " active";}; ?>">
@@ -79,6 +80,7 @@ function main(){
 		<p class="service">(<?php if($working){echo getService($user["id"]);}; ?>)</p>
 			</div>
 		<?php
+		}
 	}
 	
 	
