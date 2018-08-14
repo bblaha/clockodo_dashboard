@@ -50,7 +50,7 @@ function main(){
 
 
 	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/clock?customers_id=".$_GET["cid"]."&services_id=".$_GET["sid"]."&billable=false", getPayload()), true);
-	
+	var_dump($jsonTxt);
 	
 }
 
