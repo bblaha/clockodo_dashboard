@@ -45,16 +45,29 @@ function getPayload(){
    return $payload;
 }
 
+function getUserClockObject($userid){
+	return json_decode(callAPI("GET","https://my.clockodo.com/api/clock?users_id=".$userid, getPayload()), true);
+}
+
 function isWorking($userid){
 
 	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/clock?users_id=".$userid, getPayload()), true);
 	return !is_null($jsonTxt["running"]);
 }
 
+function isWorkingObject($clockObject){
+	return !is_null($clockObject["running"])
+}
+
 function getService($userid){
 
 	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/clock?users_id=".$userid, getPayload()), true);
 	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/services/".$jsonTxt["running"]["services_id"], getPayload()), true);
+	return $jsonTxt["service"]["name"];
+}
+
+function getServiceObject($clockObject){
+	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/services/".$clockObject["running"]["services_id"], getPayload()), true);
 	return $jsonTxt["service"]["name"];
 }
 
@@ -73,11 +86,12 @@ function main(){
 	$users = getUsers();
 	foreach($users as $user){
 		if($user["active"]==true){
-		$working = isWorking($user["id"]);
+		$clockObject = getUserClockObject($user["id"]);
+		$working = isWorkingObject($clockObject);
 		?>
 			<div class="namebox<?php if($working){echo " active";}; ?>">
 		<?php echo $user["name"]; ?><br />
-		<p class="service">(<?php if($working){echo getService($user["id"]);}; ?>)</p>
+		<p class="service">(<?php if($working){echo getServiceObject($clockObject);}; ?>)</p>
 			</div>
 		<?php
 		}
