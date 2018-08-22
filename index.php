@@ -98,7 +98,7 @@ function main(){
 		}
 	}
 	if($admin){
-		var_dump getAbsences();
+		var_dump(getAbsences());
 	}
 	
 }
