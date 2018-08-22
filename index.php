@@ -1,5 +1,4 @@
 <?php
-$admin = $_GET["admin"];
 function callAPI($method, $url, $data){
    $curl = curl_init();
    
@@ -78,12 +77,8 @@ function getUsers(){
 }
 
 function main(){
-	$mail = $_GET["mail"];
-	$key = $_GET["key"];
-	$payload = array(
-      'X-ClockodoApiUser: '.$mail,
-      'X-ClockodoApiKey: '.$key,
-   );
+	
+	$admin = $_GET["admin"];
 	$users = getUsers();
 	foreach($users as $user){
 		if($user["active"]==true){
