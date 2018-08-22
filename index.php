@@ -98,6 +98,7 @@ function main(){
 		}
 	}
 	if($admin){
+		echo date("Y");
 		var_dump(getAbsences());
 	}
 	
