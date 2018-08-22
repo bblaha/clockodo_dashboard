@@ -77,7 +77,7 @@ function getUsers(){
 }
 
 function getAbsences(){
-	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/absences&year=".date("Y"), getPayload()), true);
+	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/absences?year=".date("Y"), getPayload()), true);
 	return $jsonTxt;
 }
 
