@@ -56,7 +56,7 @@ function isWorking($userid){
 }
 
 function isWorkingObject($clockObject){
-	return !is_null($clockObject["running"])
+	return !is_null($clockObject["running"]);
 }
 
 function getService($userid){
