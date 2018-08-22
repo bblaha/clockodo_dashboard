@@ -97,7 +97,7 @@ function main(){
 		<?php
 		}
 	}
-	var_dump getAbsences();
+	//var_dump getAbsences();
 	
 }
 
