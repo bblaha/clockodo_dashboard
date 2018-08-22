@@ -76,6 +76,11 @@ function getUsers(){
 	return $jsonTxt["users"];
 }
 
+function getAbsences(){
+	$jsonTxt = json_decode(callAPI("GET","https://my.clockodo.com/api/absences&year=".date("Y"), getPayload()), true);
+	return $jsonTxt;
+}
+
 function main(){
 	
 	$admin = $_GET["admin"];
@@ -92,14 +97,14 @@ function main(){
 		<?php
 		}
 	}
-	
+	var_dump getAbsences();
 	
 }
 
 ?>
 <html>
 <head>
-<META HTTP-EQUIV="refresh" CONTENT="10">
+<META HTTP-EQUIV="refresh" CONTENT="20">
 <style>
 body{
 	background-color:black;
