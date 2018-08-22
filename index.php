@@ -87,8 +87,7 @@ function main(){
 		?>
 			<div class="namebox<?php if($working){echo " active";}; ?>">
 		<?php echo $user["name"]; ?><br />
-		<?php echo $admin;?>
-		<?php if($working&&$admin=="true"){echo "<p class=\"service\">(".getServiceObject($clockObject).")</p>";}; ?>
+		<?php if($working&&$admin){echo "<p class=\"service\">(".getServiceObject($clockObject).")</p>";}; ?>
 			</div>
 		<?php
 		}
