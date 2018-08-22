@@ -1,4 +1,5 @@
 <?php
+$admin = $_GET["admin"];
 function callAPI($method, $url, $data){
    $curl = curl_init();
    
@@ -91,7 +92,7 @@ function main(){
 		?>
 			<div class="namebox<?php if($working){echo " active";}; ?>">
 		<?php echo $user["name"]; ?><br />
-		<p class="service">(<?php if($working){echo getServiceObject($clockObject);}; ?>)</p>
+		<?php if($working&&$admin){echo "<p class=\"service\">(".getServiceObject($clockObject).")</p>";}; ?>
 			</div>
 		<?php
 		}
