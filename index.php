@@ -107,7 +107,6 @@ function main(){
 ?>
 <html>
 <head>
-<META HTTP-EQUIV="refresh" CONTENT="20">
 <style>
 body{
 	background-color:black;
